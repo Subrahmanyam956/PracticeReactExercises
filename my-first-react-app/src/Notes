@@ -1,0 +1,74 @@
+This is a simple initial React appliation.
+Here we simply learn how to create a React application.
+Start a new React application and Run it.
+
+1. Download and Install Node. (Check the node and npm versions : node -v and npm -v)
+2. run the commands
+
+   npx create-react-app my-first-react-app
+
+   cd my-first-react-app
+
+   npm start
+
+3. Now We see a basic initial react application being created and we have run the application
+   We see this application runs over port 3000 in the localhost.
+   We can access this application at => http://localhost:3000
+
+   This is a Single Page Application(SPA)
+
+   we see the boiler plate code available there.
+
+4. Now in the folder we see multiple folders and files generated here.
+
+   1. node_modules folder
+      Just like how we have our ExternalLibraries folder in a SpringBoot application here we have node_modules folder.
+      This folder consists of all the external libraries/packages that we use and downloaded from the internet.
+      Right now we have only the basic modules since we did not add any extra dependencies
+
+      1. Node modules houses all the installed packages.
+         Everything listed in the package.json(like react, react-dom, react-scripts etc..) gets downloaded into this folder.
+      2. used by the app internally. When our code uses
+         import React from 'react' , the app looks inside node_modules/react
+      3. Dependency Tree -> It also contains sub-dependencies => packages your main dependencires rely on. For example, react-scripts might depend on Babel, webpack et... which are a;so in node modules
+
+      node_modules/react/ => The React core library
+      node_modules/react-dom/ -> this interacts with the DOM
+
+      Ususally node modules are ignored in git. We can regenerate them by running the command npm install
+
+5. The public folder contains all the static files that are not processed by the React build system(Webpack/Babel).
+
+These files are served as-is to the browser.
+
+Typically public folder consists of -> index.html, facicon.ico, manifest.json...and any other assets we would keep to serve them statically via URL.
+
+    1. Index.html has the root template. React Injects the App component into this template. #root div
+    2. If you want to use an asset from the public/ folder in your component.
+
+    -> <img src={`${process.env.PUBLIC_URL}/logo.png`} alt="Logo" />
+
+     or simply  =>  <ing src="/logo.png"  alt="Logo" />
+
+
+     Here we have manifest.json file. This is mainly used for Progressive Web App(PWA) support. Resides inside public folder.
+
+     It allows your React app to:
+        -> Be "installable" (like an app shortcut on mobile or desktop)
+
+        -> Launch in fullscreen or standalone mode
+
+        -> Define your app's name, icon, theme color, and more
+
+5. This Src folder is where the actual application lies.
+   It contains all our JS files, CSS files, JSX files , TX files etc... and other resources to build and rendier the UI of our appln.
+
+   reportWebVitals.js -> used for measuring performance in PRODUCITON(Optional).
+
+---
+
+-> <React.StrictMode> => this tag is a special tool provided by React to help you write better, more robust code — especially during development. It is a wrapper component provided by React that doesn’t render anything on the screen, but enables extra checks and warnings for its children during development.
+There is no visual difference in the browser. But in development, StrictMode will:
+
+                -> Console warnings for deprecated features
+                -> Double-invoke lifecycle and effects
